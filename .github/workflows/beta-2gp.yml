@@ -1,0 +1,11 @@
+name: Beta Test 2GP
+on:
+    push:
+        branches:
+            - main
+jobs:
+    beta-test:
+        name: "Beta Test 2GP"
+        uses: MetechoDemo/standard-workflows/.github/workflows/beta-2gp.yml@main
+        secrets:
+            dev-hub-auth-url: '${{ secrets.DEV_HUB_AUTH_URL }}'

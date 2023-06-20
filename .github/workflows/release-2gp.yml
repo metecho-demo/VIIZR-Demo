@@ -1,0 +1,9 @@
+name: Upload Production Release
+on:
+    workflow_dispatch:
+jobs:
+    upload-production-release:
+        name: "Upload Production Release"
+        uses: cumulus-actions/standard-workflows/.github/workflows/production-2gp.yml@main
+        secrets:
+            dev-hub-auth-url: "${{ secrets.DEV_HUB_AUTH_URL }}"

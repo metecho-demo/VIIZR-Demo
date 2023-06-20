@@ -1,0 +1,15 @@
+name: Publish to MuseDeploy
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to publish"
+        required: true
+jobs:
+  metadeploy-publish:
+    name: "MuseDeploy Publish"
+    uses: MetechoDemo/standard-workflows/.github/workflows/musedeploy-publish.yml@main
+    secrets:
+      cumulusci-service-metadeploy: "${{ secrets.CUMULUSCI_SERVICE_METADEPLOY }}"
+    with:
+      tag: "${{ github.event.release.tag_name }}"
